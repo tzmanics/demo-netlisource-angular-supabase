@@ -1,0 +1,22 @@
+[build]
+command = "ng build"
+publish = "dist/demo-netlisource-angular-supabase"
+
+# Config for the Netlify Build Plugin: netlify-plugin-fetch-feeds
+[[plugins]]
+  package = "netlify-plugin-fetch-feeds"
+
+[plugins.inputs]
+# Where should data files reside
+dataDir = "src/data"
+
+# All the feeds we wish to gather for use in the build
+
+  [[plugins.inputs.feeds]]
+    name = "hawksworx"
+    url = "https://hawksworx.com/feed.json"
+    ttl = 3600
+  [[plugins.inputs.feeds]]
+    name = "netlify"
+    url = "https://www.netlify.com/blog/index.xml"
+    ttl = 864
